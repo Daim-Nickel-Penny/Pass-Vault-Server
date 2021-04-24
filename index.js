@@ -3,6 +3,7 @@ const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
 const PORT = 3001;
+const { encrypt, decrypt } = require("./EncryptWare");
 
 app.use(cors());
 app.use(express.json());
