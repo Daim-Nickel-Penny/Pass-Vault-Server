@@ -19,6 +19,14 @@ const db = mysql.createConnection({
 //   res.send("Hello World ");
 // });
 
+app.get("/showpasswords", (req, res) => {
+  db.query("SELECT * FROM passwords;", (err, results) => {
+    if (err) {
+      console.log(err);
+    } else res.send(results);
+  });
+});
+
 app.post("/addpassword", (req, res) => {
   const { password, title } = req.body;
   const hashPassword = encrypt(password);
@@ -34,6 +42,10 @@ app.post("/addpassword", (req, res) => {
       }
     }
   );
+});
+
+app.post("/decryptpassword", (req, res) => {
+  res.send(decrypt(req.body));
 });
 
 app.listen(PORT, () => {
