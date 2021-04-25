@@ -12,13 +12,4 @@ Connection with the DB is done here.
 
 WorkFlow Diagram -->
 
-```mermaid
-graph LR
-A[FrontEnd] -- Password --> B((Encrypted))
-
-B --> D{DataBase}
-D --Decrypting-->C((Fetch))
-C--Retrieving from DB-->A
-
-
-```
+<img src="workflow.PNG" width="860px" height="400px">
